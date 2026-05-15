@@ -15,7 +15,7 @@
 <meta name="twitter:image" content="./assets/preview-banner.webp">
 <link rel="icon" type="image/png" href="./assets/favicon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;600;700;800&family=Inter:wght@300;400;500;600&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
   :root {
     --bg: #080808;
@@ -23,13 +23,13 @@
     --surface2: #181818;
     --border: rgba(255,255,255,0.07);
     --lime: #BCFF3C;
-    --lime-dim: rgba(188,255,60,0.15);
-    --lime-glow: rgba(188,255,60,0.35);
+    --lime-dim: rgba(188,255,60,0.10);
+    --lime-glow: rgba(188,255,60,0.20);
     --white: #F2F2F2;
     --gray: #888;
     --gray2: #555;
-    --font-display: 'Syne', sans-serif;
-    --font-body: 'DM Sans', sans-serif;
+    --font-display: 'Space Grotesk', sans-serif;
+    --font-body: 'Inter', sans-serif;
   }
 
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -40,11 +40,21 @@
     background: var(--bg);
     color: var(--white);
     font-family: var(--font-body);
+    font-weight: 400;
     overflow-x: hidden;
     cursor: none;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
   }
+
+  ::-webkit-scrollbar { width: 6px; height: 6px; }
+  ::-webkit-scrollbar-track { background: var(--bg); }
+  ::-webkit-scrollbar-thumb { background: var(--surface2); border-radius: 4px; }
+  ::-webkit-scrollbar-thumb:hover { background: var(--border); }
+
+  .lucide { width: 24px; height: 24px; stroke-width: 1.5; color: var(--gray); transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1); filter: drop-shadow(0 0 8px transparent); }
+  .skill-card:hover .lucide, .service-card:hover .lucide, .cert-card:hover .lucide, .contact-link:hover .lucide, .social-ico:hover .lucide { color: var(--lime); filter: drop-shadow(0 0 12px var(--lime-dim)); }
   
   :focus-visible {
     outline: 2px solid var(--lime);
@@ -122,8 +132,8 @@
   }
   nav.scrolled {
     background: rgba(8,8,8,0.85);
-    backdrop-filter: blur(20px);
-    border-bottom: 1px solid var(--border);
+    backdrop-filter: blur(24px);
+    border-bottom: 1px solid rgba(255,255,255,0.05);
     padding: 14px 60px;
   }
   .nav-logo {
@@ -196,14 +206,14 @@
 
   .hero-name {
     font-family: var(--font-display); font-size: clamp(52px, 6vw, 88px);
-    font-weight: 800; line-height: 0.95; letter-spacing: -3px;
+    font-weight: 700; line-height: 0.95; letter-spacing: -3px;
     margin-bottom: 20px; animation: fadeUp 0.8s 0.1s ease both;
   }
   .hero-name .accent { color: var(--lime); display: block; }
 
   .hero-role {
     font-family: var(--font-display); font-size: clamp(18px, 2.5vw, 26px);
-    font-weight: 600; color: var(--gray); letter-spacing: -0.5px;
+    font-weight: 500; color: var(--gray); letter-spacing: -0.5px;
     margin-bottom: 24px; animation: fadeUp 0.8s 0.2s ease both;
     min-height: 36px;
   }
@@ -212,7 +222,7 @@
   @keyframes blink { 0%,100%{opacity:1} 50%{opacity:0} }
 
   .hero-desc {
-    font-size: 15px; line-height: 1.8; color: var(--gray); max-width: 440px;
+    font-size: 15px; line-height: 1.8; color: var(--gray); max-width: 60ch;
     margin-bottom: 40px; animation: fadeUp 0.8s 0.3s ease both;
   }
 
@@ -271,7 +281,7 @@
   .hero-portrait-wrap:hover .hero-portrait.active { transform: scale(1.03); }
 
   .code-card {
-    position: absolute; bottom: 20px; right: -120px; z-index: 3;
+    position: absolute; bottom: 10px; right: -140px; z-index: 3;
     background: rgba(17,17,17,0.75); backdrop-filter: blur(24px); border: 1px solid rgba(255,255,255,0.1);
     border-radius: 16px; padding: 0; overflow: hidden;
     width: 100%; max-width: 320px;
@@ -337,7 +347,7 @@
   .section-label::before { content: ''; width: 24px; height: 1px; background: var(--lime); }
   .section-title {
     font-family: var(--font-display); font-size: clamp(36px, 4vw, 58px);
-    font-weight: 800; letter-spacing: -2px; line-height: 1; margin-bottom: 60px;
+    font-weight: 600; letter-spacing: -2px; line-height: 1; margin-bottom: 60px;
   }
 
   .about-grid { display: grid; grid-template-columns: 1fr 1.2fr; gap: 80px; align-items: center; }
@@ -366,7 +376,7 @@
   @keyframes ringPulse { 0%,100%{opacity:0.5;transform:scale(1)} 50%{opacity:1;transform:scale(1.02)} }
 
   .about-content { }
-  .about-text { font-size: 15px; line-height: 1.9; color: var(--gray); margin-bottom: 40px; }
+  .about-text { font-size: 15px; line-height: 1.9; color: var(--gray); margin-bottom: 40px; max-width: 60ch; }
   .about-text strong { color: var(--white); font-weight: 500; }
 
   .stats-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1px; background: var(--border); border-radius: 14px; overflow: hidden; }
@@ -390,15 +400,15 @@
   .skills-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(160px, 1fr)); gap: 12px; }
   .skill-card {
     background: var(--bg); border: 1px solid var(--border); border-radius: 14px;
-    padding: 24px 20px; text-align: center; transition: all 0.3s;
+    padding: 24px 20px; text-align: center; transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
     position: relative; overflow: hidden; cursor: none;
   }
   .skill-card::before {
     content: ''; position: absolute; inset: 0;
     background: radial-gradient(circle at 50% 0%, var(--lime-dim) 0%, transparent 70%);
-    opacity: 0; transition: opacity 0.3s;
+    opacity: 0; transition: opacity 0.5s cubic-bezier(0.16, 1, 0.3, 1);
   }
-  .skill-card:hover { border-color: rgba(188,255,60,0.3); transform: translateY(-4px); box-shadow: 0 20px 40px rgba(0,0,0,0.3); }
+  .skill-card:hover { border-color: rgba(188,255,60,0.15); transform: translateY(-4px); box-shadow: 0 16px 40px rgba(0,0,0,0.4); }
   .skill-card:hover::before { opacity: 1; }
   .skill-icon { font-size: 32px; margin-bottom: 12px; display: block; }
   .skill-name { font-size: 13px; font-weight: 500; color: var(--white); margin-bottom: 12px; }
@@ -445,10 +455,10 @@
   .projects-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; }
   .project-card {
     background: var(--surface); border: 1px solid var(--border);
-    border-radius: 20px; overflow: hidden; transition: all 0.35s;
+    border-radius: 20px; overflow: hidden; transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
     cursor: none; position: relative;
   }
-  .project-card:hover { border-color: rgba(188,255,60,0.25); transform: translateY(-4px); box-shadow: 0 20px 40px rgba(0,0,0,0.3); }
+  .project-card:hover { border-color: rgba(188,255,60,0.2); transform: translateY(-4px); box-shadow: 0 16px 40px rgba(0,0,0,0.4); }
   .project-thumb {
     height: 220px; position: relative; overflow: hidden; background: #000;
   }
@@ -458,7 +468,11 @@
   .project-card:hover .project-thumb img { transform: scale(1.05); opacity: 1; }
   .project-thumb-overlay {
     position: absolute; inset: 0;
-    background: linear-gradient(to bottom, transparent 50%, var(--surface) 100%);
+    background: radial-gradient(circle at center, transparent 10%, rgba(17,17,17,0.6) 100%), linear-gradient(to bottom, transparent 40%, var(--surface) 100%);
+    mix-blend-mode: overlay; transition: all 0.5s;
+  }
+  .project-card:hover .project-thumb-overlay {
+    background: radial-gradient(circle at center, transparent 20%, rgba(17,17,17,0.4) 100%), linear-gradient(to bottom, transparent 50%, var(--surface) 100%);
   }
   .project-tech-bar {
     position: absolute; top: 16px; left: 16px;
@@ -517,9 +531,9 @@
   .cert-track::-webkit-scrollbar { display: none; }
   .cert-card {
     flex-shrink: 0; width: 260px; background: var(--surface); border: 1px solid var(--border);
-    border-radius: 16px; padding: 28px 24px; transition: all 0.3s; cursor: none;
+    border-radius: 16px; padding: 28px 24px; transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1); cursor: none;
   }
-  .cert-card:hover { border-color: rgba(188,255,60,0.3); transform: translateY(-4px); box-shadow: 0 20px 40px rgba(0,0,0,0.3); }
+  .cert-card:hover { border-color: rgba(188,255,60,0.2); transform: translateY(-4px); box-shadow: 0 16px 40px rgba(0,0,0,0.4); }
   .cert-logo { font-size: 36px; margin-bottom: 16px; }
   .cert-name { font-family: var(--font-display); font-size: 16px; font-weight: 700; margin-bottom: 6px; letter-spacing: -0.3px; }
   .cert-issuer { font-size: 12px; color: var(--gray); margin-bottom: 16px; }
@@ -530,15 +544,15 @@
   .services-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
   .service-card {
     background: var(--bg); border: 1px solid var(--border); border-radius: 18px;
-    padding: 36px 28px; transition: all 0.3s; cursor: none; position: relative; overflow: hidden;
+    padding: 36px 28px; transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1); cursor: none; position: relative; overflow: hidden;
   }
   .service-card::after {
     content: ''; position: absolute; bottom: 0; left: 0;
     width: 0; height: 2px; background: var(--lime);
-    transition: width 0.4s;
+    transition: width 0.5s cubic-bezier(0.16, 1, 0.3, 1);
   }
   .service-card:hover::after { width: 100%; }
-  .service-card:hover { transform: translateY(-4px); border-color: rgba(188,255,60,0.2); }
+  .service-card:hover { transform: translateY(-4px); border-color: rgba(188,255,60,0.15); box-shadow: 0 16px 40px rgba(0,0,0,0.4); }
   .service-icon { font-size: 32px; margin-bottom: 20px; display: block; }
   .service-title { font-family: var(--font-display); font-size: 18px; font-weight: 700; margin-bottom: 12px; letter-spacing: -0.3px; }
   .service-desc { font-size: 13px; color: var(--gray); line-height: 1.7; }
@@ -548,14 +562,14 @@
   .contact-grid { display: grid; grid-template-columns: 1fr 1.2fr; gap: 80px; }
   .contact-info-title { font-family: var(--font-display); font-size: clamp(32px, 3.5vw, 52px); font-weight: 800; letter-spacing: -2px; margin-bottom: 24px; line-height: 1; }
   .contact-info-title span { color: var(--lime); }
-  .contact-info-desc { font-size: 15px; color: var(--gray); line-height: 1.8; margin-bottom: 40px; }
+  .contact-info-desc { font-size: 15px; color: var(--gray); line-height: 1.8; margin-bottom: 40px; max-width: 60ch; }
   .contact-links { display: flex; flex-direction: column; gap: 12px; }
   .contact-link {
     display: flex; align-items: center; gap: 14px; padding: 16px 20px;
     background: var(--surface); border: 1px solid var(--border); border-radius: 12px;
-    text-decoration: none; color: var(--white); transition: all 0.25s;
+    text-decoration: none; color: var(--white); transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
   }
-  .contact-link:hover { border-color: rgba(188,255,60,0.3); transform: translateX(4px); }
+  .contact-link:hover { border-color: rgba(188,255,60,0.2); transform: translateX(4px); box-shadow: 0 16px 40px rgba(0,0,0,0.2); }
   .cl-icon { font-size: 18px; width: 36px; height: 36px; display: flex; align-items: center; justify-content: center; background: var(--lime-dim); border-radius: 8px; }
   .cl-text { }
   .cl-label { font-size: 11px; color: var(--gray); text-transform: uppercase; letter-spacing: 0.5px; }
@@ -603,6 +617,27 @@
   }
   .social-ico:hover { border-color: rgba(188,255,60,0.3); color: var(--lime); transform: translateY(-2px); }
 
+  /* RESUME */
+  #resume { padding: 140px 60px; background: var(--bg); }
+  .resume-container {
+    background: var(--surface); border: 1px solid var(--border); border-radius: 24px;
+    padding: 60px; position: relative; overflow: hidden; max-width: 1000px; margin: 0 auto;
+  }
+  .resume-glow {
+    position: absolute; top: -100px; right: -100px; width: 300px; height: 300px;
+    background: radial-gradient(circle, var(--lime-dim) 0%, transparent 70%);
+    border-radius: 50%; pointer-events: none;
+  }
+  .resume-grid { display: grid; grid-template-columns: 1fr 2fr; gap: 60px; }
+  .resume-title { font-family: var(--font-display); font-size: 24px; font-weight: 700; margin-bottom: 20px; letter-spacing: -0.5px; }
+  .resume-text { font-size: 14px; color: var(--gray); line-height: 1.8; margin-bottom: 30px; max-width: 60ch; }
+  .resume-section-title { font-size: 12px; color: var(--lime); text-transform: uppercase; letter-spacing: 1px; margin-bottom: 16px; font-weight: 600; }
+  .resume-role { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 4px; }
+  .resume-role h5 { font-family: var(--font-display); font-size: 18px; font-weight: 600; }
+  .resume-date { font-size: 12px; color: var(--gray); }
+  .resume-company { font-size: 13px; color: var(--lime); margin-bottom: 8px; }
+  .resume-item { margin-bottom: 24px; }
+
   /* ANIMATIONS */
   @keyframes fadeUp { from { opacity:0; transform:translateY(16px); filter: blur(4px); } to { opacity:1; transform:translateY(0); filter: blur(0); } }
 
@@ -615,13 +650,15 @@
     nav.scrolled { padding: 12px 28px; }
     .nav-links, .nav-cta { display: none; }
     .hamburger { display: flex; }
-    #hero { grid-template-columns: 1fr; padding: 120px 28px 60px; gap: 40px; text-align: center; }
+    #hero { grid-template-columns: 1fr; padding: 120px 28px 60px; gap: 40px; text-align: center; min-height: auto; }
     .hero-content { display: flex; flex-direction: column; align-items: center; }
-    .hero-desc { text-align: center; }
+    .hero-desc { text-align: center; max-width: 100%; }
     .hero-btns { justify-content: center; }
-    .hero-visual { width: 100%; max-width: 280px; margin: 0 auto 60px; order: -1; }
-    .code-card { max-width: 260px; bottom: -50px; right: 0; left: 0; margin: 0 auto; }
-    #about, #skills, #projects, #experience, #certifications, #services, #contact { padding: 80px 28px; }
+    .hero-visual { width: 100%; max-width: 280px; margin: 0 auto 60px; order: -1; flex-direction: column; }
+    .code-card { position: relative; bottom: auto; right: auto; left: auto; max-width: 280px; margin: 30px auto 0; animation: none; transform: translateY(0); }
+    #about, #skills, #projects, #experience, #certifications, #services, #contact, #resume { padding: 80px 28px; }
+    .resume-grid { grid-template-columns: 1fr; gap: 40px; }
+    .resume-container { padding: 40px 28px; }
     .about-grid { grid-template-columns: 1fr; gap: 40px; }
     .about-avatar { width: 100%; max-width: 300px; margin: 0 auto; }
     .projects-grid { grid-template-columns: 1fr; }
@@ -726,9 +763,9 @@
           <div><span class="c-keyword">export default</span> <span class="c-var">developer</span>;</div>
         </div>
       </div>
-      <div class="floating-badge fb1"><span class="fb-icon">⚛️</span> React Developer</div>
-      <div class="floating-badge fb2"><span class="fb-icon">🎨</span> UI/UX Design</div>
-      <div class="floating-badge fb3"><span class="fb-icon">🤖</span> AI Integration</div>
+      <div class="floating-badge fb1"><i data-lucide="atom" class="fb-icon"></i> React Developer</div>
+      <div class="floating-badge fb2"><i data-lucide="palette" class="fb-icon"></i> UI/UX Design</div>
+      <div class="floating-badge fb3"><i data-lucide="bot" class="fb-icon"></i> AI Integration</div>
     </div>
   </div>
 
@@ -818,73 +855,73 @@
   </div>
   <div class="skills-grid">
     <div class="skill-card reveal" data-delay="0">
-      <span class="skill-icon">🌐</span>
+      <i data-lucide="globe" class="skill-icon"></i>
       <div class="skill-name">HTML5</div>
       <div class="skill-bar"><div class="skill-fill" data-width="95"></div></div>
       <div class="skill-pct">95%</div>
     </div>
     <div class="skill-card reveal" data-delay="50">
-      <span class="skill-icon">🎨</span>
+      <i data-lucide="palette" class="skill-icon"></i>
       <div class="skill-name">CSS3</div>
       <div class="skill-bar"><div class="skill-fill" data-width="90"></div></div>
       <div class="skill-pct">90%</div>
     </div>
     <div class="skill-card reveal" data-delay="100">
-      <span class="skill-icon">⚡</span>
+      <i data-lucide="zap" class="skill-icon"></i>
       <div class="skill-name">JavaScript</div>
       <div class="skill-bar"><div class="skill-fill" data-width="85"></div></div>
       <div class="skill-pct">85%</div>
     </div>
     <div class="skill-card reveal" data-delay="150">
-      <span class="skill-icon">⚛️</span>
+      <i data-lucide="atom" class="skill-icon"></i>
       <div class="skill-name">React.js</div>
       <div class="skill-bar"><div class="skill-fill" data-width="80"></div></div>
       <div class="skill-pct">80%</div>
     </div>
     <div class="skill-card reveal" data-delay="200">
-      <span class="skill-icon">🟢</span>
+      <i data-lucide="server" class="skill-icon"></i>
       <div class="skill-name">Node.js</div>
       <div class="skill-bar"><div class="skill-fill" data-width="75"></div></div>
       <div class="skill-pct">75%</div>
     </div>
     <div class="skill-card reveal" data-delay="250">
-      <span class="skill-icon">🍃</span>
+      <i data-lucide="database" class="skill-icon"></i>
       <div class="skill-name">MongoDB</div>
       <div class="skill-bar"><div class="skill-fill" data-width="70"></div></div>
       <div class="skill-pct">70%</div>
     </div>
     <div class="skill-card reveal" data-delay="300">
-      <span class="skill-icon">🐍</span>
+      <i data-lucide="terminal" class="skill-icon"></i>
       <div class="skill-name">Python</div>
       <div class="skill-bar"><div class="skill-fill" data-width="78"></div></div>
       <div class="skill-pct">78%</div>
     </div>
     <div class="skill-card reveal" data-delay="350">
-      <span class="skill-icon">🐙</span>
+      <i data-lucide="github" class="skill-icon"></i>
       <div class="skill-name">Git/GitHub</div>
       <div class="skill-bar"><div class="skill-fill" data-width="85"></div></div>
       <div class="skill-pct">85%</div>
     </div>
     <div class="skill-card reveal" data-delay="400">
-      <span class="skill-icon">🖌️</span>
+      <i data-lucide="pen-tool" class="skill-icon"></i>
       <div class="skill-name">UI/UX Design</div>
       <div class="skill-bar"><div class="skill-fill" data-width="72"></div></div>
       <div class="skill-pct">72%</div>
     </div>
     <div class="skill-card reveal" data-delay="450">
-      <span class="skill-icon">🤖</span>
+      <i data-lucide="bot" class="skill-icon"></i>
       <div class="skill-name">AI Tools</div>
       <div class="skill-bar"><div class="skill-fill" data-width="80"></div></div>
       <div class="skill-pct">80%</div>
     </div>
     <div class="skill-card reveal" data-delay="500">
-      <span class="skill-icon">💨</span>
+      <i data-lucide="wind" class="skill-icon"></i>
       <div class="skill-name">Tailwind CSS</div>
       <div class="skill-bar"><div class="skill-fill" data-width="88"></div></div>
       <div class="skill-pct">88%</div>
     </div>
     <div class="skill-card reveal" data-delay="550">
-      <span class="skill-icon">🔥</span>
+      <i data-lucide="flame" class="skill-icon"></i>
       <div class="skill-name">Firebase</div>
       <div class="skill-bar"><div class="skill-fill" data-width="65"></div></div>
       <div class="skill-pct">65%</div>
@@ -910,7 +947,7 @@
       </div>
       <div class="project-body">
         <div class="project-title">ShopFlow — E-Commerce Platform</div>
-        <div class="project-desc">A full-stack e-commerce application with real-time inventory management, Stripe payment integration, JWT authentication, and an admin dashboard with analytics.</div>
+        <div class="project-desc">High-performance e-commerce architecture featuring real-time inventory sync, secure Stripe processing, and a comprehensive admin analytics dashboard.</div>
         <div class="project-links">
           <a href="javascript:void(0)" class="link-btn link-live">Live Demo ↗</a>
           <a href="javascript:void(0)" class="link-btn link-gh">GitHub</a>
@@ -930,7 +967,7 @@
       </div>
       <div class="project-body">
         <div class="project-title">AI Writing Assistant</div>
-        <div class="project-desc">A web app that uses GPT APIs to help users draft, improve, and refine content. Features tone control and multi-language support.</div>
+        <div class="project-desc">OpenAI-powered writing application delivering context-aware drafting, dynamic tone control, and multi-language generation with a fluid ChatGPT-inspired UI.</div>
         <div class="project-links">
           <a href="javascript:void(0)" class="link-btn link-live">Live Demo ↗</a>
           <a href="javascript:void(0)" class="link-btn link-gh">GitHub</a>
@@ -950,7 +987,7 @@
       </div>
       <div class="project-body">
         <div class="project-title">Analytics Dashboard</div>
-        <div class="project-desc">Real-time analytics dashboard with interactive data visualizations, custom chart components, and Firebase-powered live data updates.</div>
+        <div class="project-desc">Live fintech analytics interface rendering interactive data visualizations and complex KPI metrics via a responsive, Firebase-backed architecture.</div>
         <div class="project-links">
           <a href="javascript:void(0)" class="link-btn link-live">Live Demo ↗</a>
           <a href="javascript:void(0)" class="link-btn link-gh">GitHub</a>
@@ -970,7 +1007,7 @@
       </div>
       <div class="project-body">
         <div class="project-title">Real-Time Chat App</div>
-        <div class="project-desc">A full-featured messaging application with WebSocket-powered real-time chat, user rooms, file sharing, and end-to-end encryption.</div>
+        <div class="project-desc">Low-latency WebSocket messaging platform featuring real-time channel sync, dynamic user rooms, and secure end-to-end communication.</div>
         <div class="project-links">
           <a href="javascript:void(0)" class="link-btn link-live">Live Demo ↗</a>
           <a href="javascript:void(0)" class="link-btn link-gh">GitHub</a>
@@ -980,8 +1017,8 @@
   </div>
 
   <div class="github-section reveal">
-    <div class="github-title">
-      <span>🐙</span> GitHub Contributions
+    <div class="github-title" style="display: flex; align-items: center; justify-content: center; gap: 8px;">
+      <i data-lucide="github" style="width: 20px; height: 20px;"></i> GitHub Contributions
     </div>
     <!-- Configurable GitHub Heatmap. Change the username 'harshityadav4101-ops' below if needed -->
     <img class="github-heatmap" src="https://ghchart.rshah.org/lime/harshityadav4101-ops" alt="Harshit's GitHub Chart" loading="lazy" onerror="this.style.opacity='0'; this.parentElement.style.background='var(--surface2)';">
@@ -1030,37 +1067,37 @@
   <h2 class="section-title reveal">Certifications</h2>
   <div class="cert-track reveal">
     <div class="cert-card">
-      <div class="cert-logo">🏆</div>
+      <i data-lucide="award" class="cert-logo"></i>
       <div class="cert-name">React — The Complete Guide</div>
       <div class="cert-issuer">Udemy · Maximilian Schwarzmüller</div>
       <span class="cert-badge">Frontend</span>
     </div>
     <div class="cert-card">
-      <div class="cert-logo">🎓</div>
+      <i data-lucide="graduation-cap" class="cert-logo"></i>
       <div class="cert-name">Full-Stack Web Development</div>
       <div class="cert-issuer">Coursera · Meta</div>
       <span class="cert-badge">Full-Stack</span>
     </div>
     <div class="cert-card">
-      <div class="cert-logo">🐍</div>
+      <i data-lucide="terminal" class="cert-logo"></i>
       <div class="cert-name">Python for Everybody</div>
       <div class="cert-issuer">Coursera · University of Michigan</div>
       <span class="cert-badge">Python</span>
     </div>
     <div class="cert-card">
-      <div class="cert-logo">☁️</div>
+      <i data-lucide="cloud" class="cert-logo"></i>
       <div class="cert-name">AWS Cloud Practitioner</div>
       <div class="cert-issuer">Amazon Web Services</div>
       <span class="cert-badge">Cloud</span>
     </div>
     <div class="cert-card">
-      <div class="cert-logo">🎨</div>
+      <i data-lucide="palette" class="cert-logo"></i>
       <div class="cert-name">UI/UX Design Fundamentals</div>
       <div class="cert-issuer">Google · Coursera</div>
       <span class="cert-badge">Design</span>
     </div>
     <div class="cert-card">
-      <div class="cert-logo">🤖</div>
+      <i data-lucide="bot" class="cert-logo"></i>
       <div class="cert-name">AI for Developers</div>
       <div class="cert-issuer">DeepLearning.AI</div>
       <span class="cert-badge">AI / ML</span>
@@ -1074,34 +1111,102 @@
   <h2 class="section-title reveal">Services &<br>Capabilities</h2>
   <div class="services-grid">
     <div class="service-card reveal">
-      <span class="service-icon">⚛️</span>
+      <i data-lucide="code-2" class="service-icon"></i>
       <div class="service-title">Frontend Development</div>
       <div class="service-desc">Building high-performance, accessible, and visually stunning web applications using React, Tailwind CSS, and modern tooling.</div>
     </div>
     <div class="service-card reveal">
-      <span class="service-icon">📱</span>
+      <i data-lucide="smartphone" class="service-icon"></i>
       <div class="service-title">Responsive Web Design</div>
       <div class="service-desc">Pixel-perfect, mobile-first designs that work beautifully across all screen sizes and devices, crafted with precision CSS.</div>
     </div>
     <div class="service-card reveal">
-      <span class="service-icon">🖌️</span>
+      <i data-lucide="pen-tool" class="service-icon"></i>
       <div class="service-title">UI/UX Design</div>
       <div class="service-desc">Designing intuitive user interfaces in Figma with a focus on user experience, accessibility, and modern interaction patterns.</div>
     </div>
     <div class="service-card reveal">
-      <span class="service-icon">🤖</span>
+      <i data-lucide="bot" class="service-icon"></i>
       <div class="service-title">AI Tool Integration</div>
       <div class="service-desc">Integrating OpenAI, Anthropic, and other LLM APIs into web apps to build intelligent, AI-powered features and workflows.</div>
     </div>
     <div class="service-card reveal">
-      <span class="service-icon">⚙️</span>
+      <i data-lucide="settings" class="service-icon"></i>
       <div class="service-title">Backend Development</div>
       <div class="service-desc">Building RESTful APIs and server-side logic with Node.js, Express, and MongoDB with clean, maintainable architecture.</div>
     </div>
     <div class="service-card reveal">
-      <span class="service-icon">🚀</span>
+      <i data-lucide="rocket" class="service-icon"></i>
       <div class="service-title">Website Optimization</div>
       <div class="service-desc">Performance auditing and optimization — improving Core Web Vitals, load times, and SEO to ensure your site ranks and converts.</div>
+    </div>
+  </div>
+</section>
+
+<!-- RESUME / CV -->
+<section id="resume">
+  <div class="section-label reveal">Curriculum Vitae</div>
+  <h2 class="section-title reveal">Professional<br>Resume</h2>
+  
+  <div class="resume-container reveal">
+    <div class="resume-glow"></div>
+    <div class="resume-grid">
+      <!-- Left Column -->
+      <div>
+        <h3 class="resume-title">Harshit Yadav</h3>
+        <p class="resume-text">Frontend Engineer specializing in React, Next.js, and modern UI/UX design. Passionate about building performant, scalable, and premium web applications.</p>
+        
+        <div style="margin-bottom: 30px;">
+          <h4 class="resume-section-title">Core Stack</h4>
+          <div style="display: flex; flex-wrap: wrap; gap: 8px;">
+            <span class="tech-pill">React</span>
+            <span class="tech-pill">Next.js</span>
+            <span class="tech-pill">TypeScript</span>
+            <span class="tech-pill">Tailwind CSS</span>
+            <span class="tech-pill">Node.js</span>
+          </div>
+        </div>
+
+        <a href="./assets/resume.pdf" download class="btn-primary" style="width: 100%; justify-content: center;">
+          Download PDF Resume ↓
+        </a>
+      </div>
+
+      <!-- Right Column -->
+      <div>
+        <div style="margin-bottom: 40px;">
+          <h4 class="resume-section-title">Professional Experience</h4>
+          
+          <div class="resume-item">
+            <div class="resume-role">
+              <h5>Frontend Developer Intern</h5>
+              <span class="resume-date">Summer 2023</span>
+            </div>
+            <div class="resume-company">Tech Startup — Remote</div>
+            <p class="resume-text" style="margin-bottom: 0;">Architected responsive React components and optimized UI rendering, achieving a 40% performance improvement. Translated high-fidelity Figma designs into pixel-perfect frontend code.</p>
+          </div>
+
+          <div class="resume-item" style="margin-bottom: 0;">
+            <div class="resume-role">
+              <h5>Freelance Web Developer</h5>
+              <span class="resume-date">2023</span>
+            </div>
+            <div class="resume-company">Independent Contractor</div>
+            <p class="resume-text" style="margin-bottom: 0;">Engineered custom web solutions for 5+ clients, delivering portfolio websites, high-conversion landing pages, and CMS-integrated platforms utilizing modern frontend stacks.</p>
+          </div>
+        </div>
+        
+        <div>
+          <h4 class="resume-section-title">Education</h4>
+          <div class="resume-item" style="margin-bottom: 0;">
+            <div class="resume-role">
+              <h5>Bachelor of Computer Applications</h5>
+              <span class="resume-date">2024</span>
+            </div>
+            <p class="resume-text" style="margin-bottom: 0;">Comprehensive study of software engineering principles, algorithms, and modern web development architectures.</p>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 </section>
@@ -1115,21 +1220,21 @@
       <p class="contact-info-desc reveal">I'm currently available for full-time roles, internships, and freelance projects. Let's build something great together.</p>
       <div class="contact-links reveal">
         <a href="mailto:harshityadav4101@gmail.com" class="contact-link">
-          <span class="cl-icon">✉️</span>
+          <i data-lucide="mail" class="cl-icon"></i>
           <div class="cl-text">
             <div class="cl-label">Email</div>
             <div class="cl-val">harshityadav4101@gmail.com</div>
           </div>
         </a>
         <a href="https://www.linkedin.com/in/harshit-yadav-9201b1329" target="_blank" class="contact-link">
-          <span class="cl-icon">💼</span>
+          <i data-lucide="linkedin" class="cl-icon"></i>
           <div class="cl-text">
             <div class="cl-label">LinkedIn</div>
             <div class="cl-val">linkedin.com/in/harshit-yadav-9201b1329</div>
           </div>
         </a>
         <a href="https://github.com/harshityadav4101-ops" target="_blank" class="contact-link">
-          <span class="cl-icon">🐙</span>
+          <i data-lucide="github" class="cl-icon"></i>
           <div class="cl-text">
             <div class="cl-label">GitHub</div>
             <div class="cl-val">github.com/harshityadav4101-ops</div>
@@ -1156,10 +1261,10 @@
   <div class="footer-logo">H<span>.</span>arshit</div>
   <div class="footer-copy">© 2024 Harshit. Crafted with ☕ & passion.</div>
   <div class="footer-socials">
-    <a href="https://github.com/harshityadav4101-ops" target="_blank" class="social-ico" title="GitHub">🐙</a>
-    <a href="https://www.linkedin.com/in/harshit-yadav-9201b1329" target="_blank" class="social-ico" title="LinkedIn">💼</a>
-    <a href="javascript:void(0)" class="social-ico" title="Twitter">🐦</a>
-    <a href="javascript:void(0)" class="social-ico" title="Instagram">📸</a>
+    <a href="https://github.com/harshityadav4101-ops" target="_blank" class="social-ico" title="GitHub"><i data-lucide="github"></i></a>
+    <a href="https://www.linkedin.com/in/harshit-yadav-9201b1329" target="_blank" class="social-ico" title="LinkedIn"><i data-lucide="linkedin"></i></a>
+    <a href="javascript:void(0)" class="social-ico" title="Twitter"><i data-lucide="twitter"></i></a>
+    <a href="javascript:void(0)" class="social-ico" title="Instagram"><i data-lucide="instagram"></i></a>
   </div>
 </footer>
 
@@ -1355,5 +1460,7 @@ if (heroImages.length > 1) {
   }, 4500);
 }
 </script>
+<script src="https://unpkg.com/lucide@latest"></script>
+<script>lucide.createIcons();</script>
 </body>
 </html>
